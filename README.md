@@ -2,6 +2,7 @@
 Wolflix is like Netflix for Wolf members 📽
 
 ## Getting Started
+
 ### installation
 
 - get your api key form here : https://developers.themoviedb.org/3
@@ -16,16 +17,20 @@ npm install
 ```bash
 npm run start 
 ```
+## Bot Commands
+
 ### Movies Commands 
-```bash
+```text
 !w movie help
 ```
+
 ### Tv Show Commands 
-```bash
+```text
 !w tv help
 ```
-### Tv Show Commands 
-```bash
+
+### List's Commands 
+```text
 !w list help
 ```
 
