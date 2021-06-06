@@ -1,7 +1,36 @@
-# bot-{botname_lowercase}
+# Wolflix
+Wolflix is like Netflix for Wolf members 📽
 
-Getting Started
+## Getting Started
+### installation
 
-- Replace {botname_lowercase} with The first word of your bots name  (ALL lowercase) -> EX: tag, dua, manager, notes
-- Replace {BotName} with the first word of your bots name CapitalCase
-- Replace {developer} with your name.
+- get your api key form here : https://developers.themoviedb.org/3
+- put the api key in yaml file.
+- put your account credentials in yaml file.
+- run this commands : 
+
+```bash
+npm install 
+```
+
+```bash
+npm run start 
+```
+### Movies Commands 
+```bash
+!w movie help
+```
+### Tv Show Commands 
+```bash
+!w tv help
+```
+### Tv Show Commands 
+```bash
+!w list help
+```
+
+## Approval
+This Bot and all unofficial bots MUST be approved by WOLF staff in bot approval or bot approval.ar
+
+## Support 
+You can support this project by being in this group [wolflix](http://wolf.live/wolflix?r=12500068) using the bot and talk about the movies and Tv shows :) 
