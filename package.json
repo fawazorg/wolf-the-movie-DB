@@ -1,17 +1,32 @@
 {
-  "name": "{botname_lowercase}bot",
-  "version": "1.0.0",
-  "description": "{BotName} Bot ",
+  "name": "wolflix",
+  "version": "0.0.1",
+  "description": "Like a Netflix for WOLF.live community.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "dev": "nodemon index.js"
   },
-  "author": "{developer}",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fawazorg/wolflix.git"
+  },
+  "keywords": [
+    "wolf",
+    "tmdb",
+    "plaringo",
+    "movie",
+    "tv"
+  ],
+  "author": "Fawazorg",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fawazorg/wolflix/issues"
+  },
+  "homepage": "https://github.com/fawazorg/wolflix#readme",
   "dependencies": {
-    "@dawalters1/constants": "1.0.0",
-    "@dawalters1/wolf.js": "0.2.2",
-    "config": "^3.3.6"
+    "@dawalters1/constants": "^1.0.5",
+    "@dawalters1/wolf.js": "^0.17.3",
+    "@leonardocabeza/the-movie-db": "^4.5.0",
+    "dotenv": "^10.0.0"
   }
 }

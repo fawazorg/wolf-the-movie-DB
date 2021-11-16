@@ -1,91 +1,91 @@
 [
   {
     "name": "wolflix_command_default",
-    "value": "!wolflix"
+    "value": "!ولفلكس"
   },
   {
     "name": "wolflix_command_default",
-    "value": "!w"
+    "value": "!و"
   },
   {
     "name": "wolflix_command_help",
-    "value": "help"
+    "value": "مساعدة"
   },
   {
     "name": "wolflix_command_languages",
-    "value": "languages"
+    "value": "لغات"
   },
   {
     "name": "wolflix_command_movie",
-    "value": "movie"
+    "value": "فلم"
   },
   {
     "name": "wolflix_command_tv",
-    "value": "tv"
+    "value": "مسلسل"
   },
   {
     "name": "wolflix_command_find",
-    "value": "find"
+    "value": "رقم"
   },
   {
     "name": "wolflix_command_genre",
-    "value": "genre"
+    "value": "تصنيف"
   },
   {
     "name": "wolflix_command_genres",
-    "value": "genres"
+    "value": "تصنيفات"
   },
   {
     "name": "wolflix_command_popular",
-    "value": "popular"
+    "value": "شائع"
   },
   {
     "name": "wolflix_command_search",
-    "value": "search"
+    "value": "بحث"
   },
   {
     "name": "wolflix_command_upcomming",
-    "value": "upcomming"
+    "value": "قادم"
   },
   {
     "name": "wolflix_default_message",
-    "value": "Welcome to Wolflix Bot.\nuse !wolflix help."
+    "value": "مرحبا بك في بوت ولفليكس\nاستخدم !ولفلكس مساعدة."
   },
   {
     "name": "wolflix_languages_message",
-    "value": "!wolflix help \n !ولفليكس مساعدة"
+    "value": "!wolflix help \n !ولفلكس مساعدة"
   },
   {
     "name": "wolflix_global_help_message",
-    "value": "General help : \n!wolflix languages - show all bot language's.\n!wolflix movie help - show movie help. \n!wolflix tv help - show tv show help."
+    "value": "قائمة المساعدة : \n !ولفلكس لغات - لعرض اللغات المدعومة  \n!ولفلكس فلم مساعدة\n!ولفلكس مسلسل مساعدة"
   },
   {
     "name": "wolflix_genres_message",
-    "value": "Genres"
+    "value": "قائمة بالتصنيفات"
   },
   {
     "name": "wolflix_movie_help_message",
-    "value": "Movie Help Menu"
+    "value": "قائمة مساعدة الافلام :\n!ولفلكس فلم - لعرض فلم عشوائي\n!ولفلكس فلم رقم (الرقم) - لعرض الفلم بناء على رقمه\n!ولفلكس فلم تصنيف (التصنيف) - لعرض فلم بناء على تصنيفه\n!ولفلكس فلم تصنيفات - لعرض تصنيفات الافلام\n!ولفلكس فلم شائع - لعرض الافلام الشائعة\n!ولفلكس فلم بحث (استعلام) - للبحث عن الافلام\n!ولفلكس فلم قادم - لعرض الافلام القائمة\n!ولفلكس فلم مساعدة - لعرض هذه القائمة"
   },
   {
     "name": "wolflix_movie_message",
-    "value": "🎬 {original_title} ({id}) \n\n📅 ({release_date}) - ⭐ ({vote_average}/10)\n\n{genres}\n\n {overview}"
+    "value": "({id}) {original_title} 🎬 \n\n (10/{vote_average}) ⭐ - ({release_date}) 📅 \n\n {genres}\n\n{overview}"
   },
   {
     "name": "wolflix_movie_list_popular_message",
-    "value": "Popular Movies : \n{list}"
+    "value": "الافلام الشائعة : \n{list}"
   },
   {
     "name": "wolflix_movie_list_upcomming_message",
-    "value": "Upcomming Movies : \n{list}"
+    "value": "الأفلام القادمة : \n{list}"
   },
   {
     "name": "wolflix_movie_error_not_found_id_message",
-    "value": "(n) There are no movies that matched this id."
+    "value": "(n) لم نجد فلما مطابق للرقم المدخل."
   },
   {
     "name": "wolflix_movie_error_not_found_query_message",
-    "value": "(n) There are no movies that matched your query."
+    "value": "(n) لم نجد فلما يتطابق مع استعلامك."
   },
   {
     "name": "wolflix_genre",
@@ -96,103 +96,103 @@
     "value": [
       {
         "id": 28,
-        "name": "Action",
+        "name": "اكشن",
         "emoji": "🎬"
       },
       {
         "id": 12,
-        "name": "Adventure",
+        "name": "مغامرة",
         "emoji": "🚋"
       },
       {
         "id": 16,
-        "name": "Animation",
+        "name": "رسوم متحركة",
         "emoji": "💮"
       },
       {
         "id": 35,
-        "name": "Comedy",
+        "name": "كوميدي",
         "emoji": "😂"
       },
       {
         "id": 80,
-        "name": "Crime",
+        "name": "جريمة",
         "emoji": "🕵️‍♂️"
       },
       {
         "id": 99,
-        "name": "Documentary",
+        "name": "وثائقي",
         "emoji": "📑"
       },
       {
         "id": 18,
-        "name": "Drama",
+        "name": "دراما",
         "emoji": "🎭"
       },
       {
         "id": 10751,
-        "name": "Family",
+        "name": "عائلي",
         "emoji": "👨‍👩‍👧‍👦"
       },
       {
         "id": 14,
-        "name": "Fantasy",
+        "name": "فانتازيا",
         "emoji": "🐲"
       },
       {
         "id": 36,
-        "name": "History",
+        "name": "تاريخي",
         "emoji": "📜"
       },
       {
         "id": 27,
-        "name": "Horror",
+        "name": "رعب",
         "emoji": "⚰"
       },
       {
         "id": 10402,
-        "name": "Music",
+        "name": "موسيقى",
         "emoji": "🎹"
       },
       {
         "id": 9648,
-        "name": "Mystery",
+        "name": "غموض",
         "emoji": "👁️‍🗨️"
       },
       {
         "id": 10749,
-        "name": "Romance",
+        "name": "رومانسي",
         "emoji": "💏"
       },
       {
         "id": 878,
-        "name": "Science Fiction",
+        "name": "خيال علمي",
         "emoji": "🤖"
       },
       {
         "id": 10770,
-        "name": "TV Movie",
+        "name": "فيلم تلفازي",
         "emoji": "📺"
       },
       {
         "id": 53,
-        "name": "Thriller",
+        "name": "إثارة",
         "emoji": "🔫"
       },
       {
         "id": 10752,
-        "name": "War",
+        "name": "حرب",
         "emoji": "⚔️"
       },
       {
         "id": 37,
-        "name": "Western",
+        "name": "غربي",
         "emoji": "🤠"
       }
     ]
   },
   {
     "name": "wolflix_error_number",
-    "value": "(n) The id must be a number"
+    "value": "(n) المدخلات يجب ان تكون رقماً."
   }
 ]
