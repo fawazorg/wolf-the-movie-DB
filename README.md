@@ -10,6 +10,6 @@ A bot like for WOLF.live community
 
 ## thanks :
 
-- Staff (Dew)[https://github.com/dawalters1/]
+- Staff [Dew](https://github.com/dawalters1/)
 - Staff Manaf
 - Leon
