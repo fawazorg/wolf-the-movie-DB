@@ -11,18 +11,7 @@ const random = (array) => array[Math.floor(Math.random() * array.length)];
  */
 const imageURL = (image) => `https://image.tmdb.org/t/p/w500${image}`;
 
-const getBuffer = async (url) => {
-  try {
-    const response = await fetch(url);
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    return buffer;
-  } catch (error) {
-    return { error };
-  }
-};
 module.exports = {
   random,
   imageURL,
-  getBuffer,
 };

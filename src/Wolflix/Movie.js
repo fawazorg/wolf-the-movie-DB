@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 const Genre = require("./Genre");
 const TMDB = require("./TMDB");
-const { random, imageURL, getBuffer, printGenres } = require("../utility");
+const { random, imageURL } = require("../utility");
 
 class Movie {
   API;
@@ -105,7 +105,9 @@ class Movie {
     return random(SortBy);
   };
   _getMovieImage = async (movie) => {
-    return await getBuffer(imageURL(movie.poster_path));
+    return await this.API.utility()
+      .download()
+      .file(imageURL(movie.poster_path));
   };
   _formatMovie = ({
     id,

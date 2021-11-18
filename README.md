@@ -1,14 +1,14 @@
-## wolflix
+## Wolflix
 
 A bot like for WOLF.live community
 
-## commands:
+## Commands:
 
 ```bash
 !wolflix help
 ```
 
-## thanks :
+## Thanks :
 
 - Staff [Dew](https://github.com/dawalters1/)
 - Staff Manaf
