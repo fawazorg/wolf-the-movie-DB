@@ -2,14 +2,14 @@ const TMDB = require("./TMDB");
 const Base = require("./Base");
 const { random } = require("../utility");
 
-class Movie extends Base {
+class TV extends Base {
   /**
    *
    * @param {import("@dawalters1/wolf.js").WOLFBot} api
    * @param {import("@dawalters1/wolf.js").CommandObject} command
    */
   constructor(api, command) {
-    super(api, command, "movie");
+    super(api, command, "tv");
   }
 
   /**
@@ -18,12 +18,12 @@ class Movie extends Base {
    */
   Random = async () => {
     try {
-      const movies = await TMDB.discover.movie({
+      const tvShows = await TMDB.discover.tvShows({
         language: this.Language,
         sort_by: this._randomSortBy(),
         page: Math.floor(Math.random() * 10 + 1),
       });
-      await this._replyItem(random(movies.results));
+      await this._replyItem(random(tvShows.results));
     } catch (error) {
       await this._replyError(error);
     }
@@ -35,9 +35,9 @@ class Movie extends Base {
    */
   Find = async (id) => {
     try {
-      const movie = await TMDB.movie.details(id, { language: this.Language });
-      if (movie) {
-        await this._replyItem(movie);
+      const tvShow = await TMDB.tv.details(id, { language: this.Language });
+      if (tvShow) {
+        await this._replyItem(tvShow);
       }
     } catch (error) {
       await this._replyError(error);
@@ -51,15 +51,15 @@ class Movie extends Base {
    */
   Search = async (query) => {
     try {
-      const movies = await TMDB.search.movies({
+      const tvShows = await TMDB.search.tv({
         language: this.Language,
         query,
       });
-      if (movies.results.length > 0) {
-        await this._replyItem(movies.results[0]);
+      if (tvShows.results.length > 0) {
+        await this._replyItem(tvShows.results[0]);
         return;
       }
-      await this._replyError("Not Found!");
+      await this._replyError("not Found!");
     } catch (error) {
       await this._replyError(error);
     }
@@ -69,10 +69,10 @@ class Movie extends Base {
    *
    *
    */
-  Upcomming = async () => {
+  Today = async () => {
     try {
-      const movies = await TMDB.movie.upcoming({ language: this.Language });
-      await this._replyItems(movies.results, "upcomming");
+      const tvShows = await TMDB.tv.airingToday({ language: this.Language });
+      await this._replyItems(tvShows.results, "today");
     } catch (error) {
       await this._replyError(error);
     }
@@ -85,17 +85,17 @@ class Movie extends Base {
    */
   ByGenre = async (name) => {
     try {
-      const movies = await TMDB.discover.movie({
+      const tvShows = await TMDB.discover.tvShows({
         language: this.Language,
         sort_by: this._randomSortBy(),
         page: Math.floor(Math.random() * 10 + 1),
-        with_genres: this.GENRE.ByNameMovie(name),
+        with_genres: this.Genre.ByNameTV(name),
       });
-      if (movies.results.length > 0) {
-        await this._replyItem(random(movies.results));
+      if (tvShows.results.length > 0) {
+        await this._replyItem(random(tvShows.results));
         return;
       }
-      await this._replyError("Not Found!");
+      await this._replyError("not found!");
     } catch (error) {
       await this._replyError(error);
     }
@@ -103,9 +103,9 @@ class Movie extends Base {
 
   /**
    *
-   * @param {String} name
+   *
    */
-  Genres = async (name) => {
+  Genres = async () => {
     await this._replyGenres();
   };
 
@@ -115,8 +115,8 @@ class Movie extends Base {
    */
   Popular = async () => {
     try {
-      const movies = await TMDB.movie.popular({ language: this.Language });
-      await this._replyItems(movies.results, "popular");
+      const tvShows = await TMDB.tv.popular({ language: this.Language });
+      await this._replyItems(tvShows.results, "popular");
     } catch (error) {
       await this._replyError(error);
     }
@@ -129,12 +129,11 @@ class Movie extends Base {
   _randomSortBy = () => {
     const SortBy = [
       "popularity.desc",
-      "revenue.desc",
       "vote_average.desc",
-      "vote_count.desc",
+      "first_air_date.desc",
     ];
     return random(SortBy);
   };
 }
 
-module.exports = Movie;
+module.exports = TV;

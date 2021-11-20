@@ -48,6 +48,10 @@
     "value": "upcomming"
   },
   {
+    "name": "wolflix_command_today",
+    "value": "today"
+  },
+  {
     "name": "wolflix_default_message",
     "value": "Welcome to Wolflix Bot.\nuse !wolflix help."
   },
@@ -68,8 +72,12 @@
     "value": "Movie Help Menu"
   },
   {
-    "name": "wolflix_movie_message",
-    "value": "🎬 {original_title} ({id}) \n\n📅 ({release_date}) - ⭐ ({vote_average}/10)\n\n{genres}\n\n {overview}"
+    "name": "wolflix_tv_help_message",
+    "value": "TV Help Menu"
+  },
+  {
+    "name": "wolflix_item",
+    "value": "{emoji} {title} ({id}) \n\n📅 ({date}) - ⭐ ({stars}/10)\n\n{genres}\n\n {overview}"
   },
   {
     "name": "wolflix_movie_list_popular_message",
@@ -88,8 +96,16 @@
     "value": "(n) There are no movies that matched your query."
   },
   {
-    "name": "wolflix_genre",
-    "value": "- {emoji} {name}"
+    "name": "wolflix_error_number",
+    "value": "(n) The id must be a number"
+  },
+  {
+    "name": "wolflix_comma",
+    "value": ","
+  },
+  {
+    "name": "wolflix_genre_available",
+    "value": "The available Geners:\n\n"
   },
   {
     "name": "wolflix_genres_movie",
@@ -192,7 +208,88 @@
     ]
   },
   {
-    "name": "wolflix_error_number",
-    "value": "(n) The id must be a number"
+    "name": "wolflix_genres_tv",
+    "value": [
+      {
+        "id": 10759,
+        "name": "Action",
+        "emoji": "🎬"
+      },
+      {
+        "id": 16,
+        "name": "Animation",
+        "emoji": "💮"
+      },
+      {
+        "id": 35,
+        "name": "Comedy",
+        "emoji": "😂"
+      },
+      {
+        "id": 80,
+        "name": "Crime",
+        "emoji": "🕵️‍♂️"
+      },
+      {
+        "id": 99,
+        "name": "Documentary",
+        "emoji": "📑"
+      },
+      {
+        "id": 18,
+        "name": "Drama",
+        "emoji": "🎭"
+      },
+      {
+        "id": 10751,
+        "name": "Family",
+        "emoji": "👨‍👩‍👧‍👦"
+      },
+      {
+        "id": 10762,
+        "name": "Kids",
+        "emoji": "👶"
+      },
+      {
+        "id": 9648,
+        "name": "Mystery",
+        "emoji": "👁️‍🗨️"
+      },
+      {
+        "id": 10763,
+        "name": "News",
+        "emoji": "📰"
+      },
+      {
+        "id": 10764,
+        "name": "Reality",
+        "emoji": "🤵"
+      },
+      {
+        "id": 10765,
+        "name": "Sci-Fi",
+        "emoji": "🐲"
+      },
+      {
+        "id": 10766,
+        "name": "Soap",
+        "emoji": "😄"
+      },
+      {
+        "id": 10767,
+        "name": "Talk",
+        "emoji": "🗣"
+      },
+      {
+        "id": 10768,
+        "name": "War",
+        "emoji": "⚔️"
+      },
+      {
+        "id": 37,
+        "name": "Western",
+        "emoji": "🤠"
+      }
+    ]
   }
 ]
