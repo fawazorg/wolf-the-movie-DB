@@ -12,7 +12,10 @@ const random = (array) => array[Math.floor(Math.random() * array.length)];
 const imageURL = (image) => `https://image.tmdb.org/t/p/w500${image}`;
 
 const HtmlToImage = async (html) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox"],
+    headless: true,
+  });
   const page = await browser.newPage();
   await page.setContent(html);
 
