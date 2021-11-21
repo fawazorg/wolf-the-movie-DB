@@ -89,7 +89,7 @@ class Movie extends Base {
         language: this.Language,
         sort_by: this._randomSortBy(),
         page: Math.floor(Math.random() * 10 + 1),
-        with_genres: this.GENRE.ByNameMovie(name),
+        with_genres: this.Genre.ByNameMovie(name),
       });
       if (movies.results.length > 0) {
         await this._replyItem(random(movies.results));

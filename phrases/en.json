@@ -5,7 +5,7 @@
   },
   {
     "name": "wolflix_command_default",
-    "value": "!w"
+    "value": "!wl"
   },
   {
     "name": "wolflix_command_help",
@@ -14,6 +14,14 @@
   {
     "name": "wolflix_command_languages",
     "value": "languages"
+  },
+  {
+    "name": "wolflix_command_stats",
+    "value": "stats"
+  },
+  {
+    "name": "wolflix_command_switch",
+    "value": "switch"
   },
   {
     "name": "wolflix_command_movie",
@@ -60,8 +68,24 @@
     "value": "!wolflix help \n !ولفليكس مساعدة"
   },
   {
+    "name": "wolflix_stats_message",
+    "value": "Group status : {theme}"
+  },
+  {
+    "name": "wolflix_switch_message",
+    "value": "(y) Change to : {theme} mode."
+  },
+  {
+    "name": "wolflix_switch_pack",
+    "value": "Pack"
+  },
+  {
+    "name": "wolflix_switch_text",
+    "value": "Text"
+  },
+  {
     "name": "wolflix_global_help_message",
-    "value": "General help : \n!wolflix languages - show all bot language's.\n!wolflix movie help - show movie help. \n!wolflix tv help - show tv show help."
+    "value": "General help : \n!wolflix movie help\n!wolflix tv help\n!wolflix languages\n!wolflix switch - to change display mode\n!wolflix stats - show the group"
   },
   {
     "name": "wolflix_genres_message",
@@ -69,35 +93,35 @@
   },
   {
     "name": "wolflix_movie_help_message",
-    "value": "Movie Help Menu"
+    "value": "Movie help menu : \n !wolflix movie - show random movie\n!wolflix movie search <movie name>\n!wolflix movie find <movie id>\n!wolflix movie popular\n!wolflix movie upcomming\n!wolflix movie genres\n!wolflix movie genre <genre>\n!wolflix movie help"
   },
   {
     "name": "wolflix_tv_help_message",
-    "value": "TV Help Menu"
+    "value": "TV help menu \n !wolflix tv - show random tv show\n!wolflix tv search <tvshow name>\n!wolflix tv find <tvshow id>\n!wolflix tv popular\n!wolflix tv today\n!wolflix tv genres\n!wolflix tv genre <genre>\n!wolflix tv help"
   },
   {
     "name": "wolflix_item",
     "value": "{emoji} {title} ({id}) \n\n📅 ({date}) - ⭐ ({stars}/10)\n\n{genres}\n\n {overview}"
   },
   {
-    "name": "wolflix_movie_list_popular_message",
+    "name": "wolflix_list_popular_movie",
     "value": "Popular Movies : \n{list}"
   },
   {
-    "name": "wolflix_movie_list_upcomming_message",
-    "value": "Upcomming Movies : \n{list}"
+    "name": "wolflix_list_popular_tv",
+    "value": "Popular Tv Shows: \n{list}"
   },
   {
-    "name": "wolflix_movie_error_not_found_id_message",
-    "value": "(n) There are no movies that matched this id."
+    "name": "wolflix_list_upcomming_movie",
+    "value": "Upcomming movies : \n{list}"
   },
   {
-    "name": "wolflix_movie_error_not_found_query_message",
-    "value": "(n) There are no movies that matched your query."
+    "name": "wolflix_list_today_tv",
+    "value": "Tv show Aring today : \n{list}"
   },
   {
-    "name": "wolflix_error_number",
-    "value": "(n) The id must be a number"
+    "name": "wolflix_error_not_found",
+    "value": "(n) we can't find resulte match what you looking for."
   },
   {
     "name": "wolflix_comma",

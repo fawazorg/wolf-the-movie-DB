@@ -1,5 +1,7 @@
 const Genre = require("./Genre");
-const { imageURL } = require("../utility/index");
+const { imageURL, HtmlToImage } = require("../utility/index");
+const dark = require("../utility/templates/dark.temple");
+const groups = require("../data/groups");
 class Base {
   #API;
   #Command;
@@ -46,6 +48,9 @@ class Base {
    * @param {*} item
    */
   _replyItem = async (item) => {
+    if (groups.Find(this.#Command.targetGroupId)) {
+      return await this._reply(await HtmlToImage(this._formatItmeHtml(item)));
+    }
     await this._replyItemImage(item);
     await this._reply(this._formatItem(item));
   };
@@ -196,6 +201,26 @@ class Base {
   /**
    *
    * @param {*} item
+   */
+  _formatItmeHtml = (item) => {
+    return this.#API
+      .utility()
+      .string()
+      .replace(dark, {
+        itemid: item.id,
+        itemBackdrop: item.backdrop_path ?? "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+        itemTitle: this._itemName(item) ?? "",
+        itmeDate: this._itemDate(item) ?? "",
+        movieStar: item.vote_average ?? 0,
+        itemGenres: this._itemGenres(item, true) ?? "",
+        itemOverview: item.overview ?? "",
+        itemPoster: item.poster_path ?? "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      });
+  };
+
+  /**
+   *
+   * @param {*} item
    * @returns
    */
   _itemName = (item) => {
@@ -207,11 +232,14 @@ class Base {
    * @param {*} item
    * @returns
    */
-  _itemGenres = (item) => {
+  _itemGenres = (item, html) => {
     const ids = item.hasOwnProperty("genre_ids") ? item.genre_ids : item.genres;
-    return this.#Type === "tv"
-      ? this.Genre.PrintTV(ids)
-      : this.Genre.PrintMovie(ids);
+    if (ids.length > 0) {
+      return this.#Type === "tv"
+        ? this.Genre.PrintTV(ids, html)
+        : this.Genre.PrintMovie(ids, html);
+    }
+    return "";
   };
 
   /**

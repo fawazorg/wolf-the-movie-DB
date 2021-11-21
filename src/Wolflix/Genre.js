@@ -23,16 +23,18 @@ class Genre {
   /**
    *
    * @param {Array} gids
+   * @param {boolean} html
    * @returns {String}
    */
-  PrintTV = (gids = []) => this._printGenres("tv", gids);
+  PrintTV = (gids = [], html) => this._printGenres("tv", html, gids);
 
   /**
    *
    * @param {Array} gids
+   * @param {boolean} html
    * @returns {String}
    */
-  PrintMovie = (gids = []) => this._printGenres("movie", gids);
+  PrintMovie = (gids = [], html) => this._printGenres("movie", html, gids);
 
   /**
    *
@@ -71,18 +73,35 @@ class Genre {
    * @returns {String}
    */
   _formatAllGenres = (genres) => {
-    let reponse = this._getPhrase(this.Genre_Available);
+    let r = this._getPhrase(this.Genre_Available);
     const comma = this._getPhrase(this.Comma);
     genres.forEach((g, index, array) => {
       if (index === array.length - 1) {
-        reponse += `${g.name}.`;
-        return reponse;
+        r += `${g.name}.`;
+        return r;
       }
-      reponse += `${g.name} ${comma} `;
+      r += `${g.name} ${comma} `;
     });
-    return reponse;
+    return r;
   };
 
+  /**
+   *
+   * @param {Array} genres
+   * @returns {String}
+   */
+  _formatHTMLGenres = (genres) => {
+    let r = "";
+    const comma = this._getPhrase(this.Comma);
+    genres.forEach((g, index, array) => {
+      if (index === array.length - 1) {
+        r += `${g.name}.`;
+        return r;
+      }
+      r += `${g.name} ${comma} `;
+    });
+    return r;
+  };
   /**
    *
    * @param {("tv"|"movie")} type
@@ -125,18 +144,26 @@ class Genre {
   /**
    *
    * @param {("tv"|"movie")} type
+   * @param {boolean} html
    * @param {Array} gids
    * @returns
    */
-  _printGenres = (type, gids = []) => {
+  _printGenres = (type, html = false, gids = []) => {
     if (gids.length === 0) {
       return this._formatAllGenres(this._get_genres(type));
     }
     if (Number.isFinite(gids[0])) {
+      if (html) {
+        return this._formatHTMLGenres(this._getGenresByids(type, gids));
+      }
       return this._formatGenres(this._getGenresByids(type, gids));
     }
     let ids = [];
     gids.forEach((t) => ids.push(t.id));
+
+    if (html) {
+      return this._formatHTMLGenres(this._getGenresByids(type, ids));
+    }
     return this._formatGenres(this._getGenresByids(type, ids));
   };
 
