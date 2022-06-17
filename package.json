@@ -1,6 +1,6 @@
 {
   "name": "wolflix",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Like a Netflix for WOLF.live community.",
   "main": "index.js",
   "scripts": {
