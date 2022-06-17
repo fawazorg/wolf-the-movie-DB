@@ -24,10 +24,9 @@
   },
   "homepage": "https://github.com/fawazorg/wolflix#readme",
   "dependencies": {
-    "@dawalters1/constants": "^1.0.5",
-    "@dawalters1/wolf.js": "^0.17.3",
     "@leonardocabeza/the-movie-db": "^4.5.0",
     "dotenv": "^10.0.0",
-    "puppeteer": "^3.0.4"
+    "puppeteer": "^3.0.4",
+    "wolf.js": "^1.4.18"
   }
 }

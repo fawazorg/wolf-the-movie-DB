@@ -1,14 +1,14 @@
-const WOLF = require("@dawalters1/wolf.js");
+const WOLF = require("wolf.js");
 const TV = require("../../Wolflix/TV");
 const { api } = require("../../../bot");
 
-const COMMAND_TRIGER = `${api.config.keyword}_command_popular`;
+const COMMAND_TRIGGER = `${api.config.keyword}_command_popular`;
 
 TVPopular = async (api, command) => {
   const tv = new TV(api, command);
   await tv.Popular();
 };
 
-module.exports = new WOLF.Command(COMMAND_TRIGER, {
+module.exports = new WOLF.Command(COMMAND_TRIGGER, {
   both: (command) => TVPopular(api, command),
 });

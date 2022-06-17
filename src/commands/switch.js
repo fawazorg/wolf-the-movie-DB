@@ -1,8 +1,8 @@
-const WOLF = require("@dawalters1/wolf.js");
+const WOLF = require("wolf.js");
 const { api } = require("../../bot");
 const groups = require("../data/groups");
 
-const COMMAND_TRIGER = `${api.config.keyword}_command_switch`;
+const COMMAND_TRIGGER = `${api.config.keyword}_command_switch`;
 const COMMAND_RESPONSE = `${api.config.keyword}_switch_message`;
 const PACK = `${api.config.keyword}_switch_pack`;
 const TEXT = `${api.config.keyword}_switch_text`;
@@ -31,6 +31,6 @@ Switch = async (api, command) => {
   );
 };
 
-module.exports = new WOLF.Command(COMMAND_TRIGER, {
+module.exports = new WOLF.Command(COMMAND_TRIGGER, {
   group: (command) => Switch(api, command),
 });
