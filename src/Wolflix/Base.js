@@ -1,3 +1,4 @@
+const { Constants } = require("wolf.js");
 const Genre = require("./Genre");
 const { imageURL, HtmlToImage } = require("../utility/index");
 const dark = require("../utility/templates/dark.temple");
@@ -17,8 +18,8 @@ class Base {
 
   /**
    *
-   * @param {import("@dawalters1/wolf.js").WOLFBot} api
-   * @param {import("@dawalters1/wolf.js").CommandObject} command
+   * @param {import("wolf.js").WOLFBot} api
+   * @param {import("wolf.js").CommandObject} command
    * @param {("tv"|"movie")} type
    */
   constructor(api, command, type) {
@@ -52,7 +53,8 @@ class Base {
       return await this._reply(await HtmlToImage(this._formatItmeHtml(item)));
     }
     await this._replyItemImage(item);
-    await this._reply(this._formatItem(item));
+    let ops = this._setupLinkOptions(item);
+    await this._reply(this._formatItem(item), ops);
   };
 
   /**
@@ -104,16 +106,16 @@ class Base {
    * @param {*} error
    */
   _replyError = async (error) => {
-    console.log(error);
     await this._reply(this._getPhrase(this.#Wolflix_Error_Notfound));
   };
 
   /**
    *
    * @param {String} content
+   * @param {Object} ops
    */
-  _reply = async (content) => {
-    await this.#API.messaging().sendMessage(this.#Command, content);
+  _reply = async (content, opts = {}) => {
+    await this.#API.messaging().sendMessage(this.#Command, content, opts);
   };
 
   /**
@@ -198,6 +200,23 @@ class Base {
       });
   };
 
+  _setupLinkOptions = (item) => {
+    let options = {};
+    let padding =
+      this.#Command.language === "ar" ? 3 + item.id.toString().length : 3;
+    if (item.homepage) {
+      options.links = [
+        {
+          start: padding,
+          end: this._itemName(item).length + padding,
+          value: item.homepage,
+          type: Constants.MessageLinkingType.EXTERNAL,
+        },
+      ];
+      return options;
+    }
+    return [];
+  };
   /**
    *
    * @param {*} item

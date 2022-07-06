@@ -56,7 +56,10 @@ class Movie extends Base {
         query,
       });
       if (movies.results.length > 0) {
-        await this._replyItem(movies.results[0]);
+        const movie = await TMDB.movie.details(movies.results[0].id, {
+          language: this.Language,
+        });
+        await this._replyItem(movie);
         return;
       }
       await this._replyError("Not Found!");

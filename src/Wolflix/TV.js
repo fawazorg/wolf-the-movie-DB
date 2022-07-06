@@ -56,7 +56,11 @@ class TV extends Base {
         query,
       });
       if (tvShows.results.length > 0) {
-        await this._replyItem(tvShows.results[0]);
+        const tvShow = await TMDB.tv.details(tvShows.results[0].id, {
+          language: this.Language,
+        });
+
+        await this._replyItem(tvShow);
         return;
       }
       await this._replyError("not Found!");
