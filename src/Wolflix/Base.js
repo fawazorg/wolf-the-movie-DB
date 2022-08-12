@@ -50,7 +50,9 @@ class Base {
    */
   _replyItem = async (item) => {
     if (groups.Find(this.#Command.targetGroupId)) {
-      return await this._reply(await toImage(this._formatForCanvas(item)));
+      return await this._reply(
+        await toImage(this.Language, this._formatForCanvas(item))
+      );
     }
     await this._replyItemImage(item);
     let ops = this._setupLinkOptions(item);

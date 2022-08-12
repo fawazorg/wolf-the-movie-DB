@@ -11,16 +11,19 @@ const random = (array) => array[Math.floor(Math.random() * array.length)];
  */
 const imageURL = (image) => `https://image.tmdb.org/t/p/w500${image}`;
 
-const toImage = async ({
-  itemId,
-  itemBackdrop,
-  itemTitle,
-  itemDate,
-  movieStar,
-  itemGenres,
-  itemOverview,
-  itemPoster,
-}) => {
+const toImage = async (
+  language,
+  {
+    itemId,
+    itemBackdrop,
+    itemTitle,
+    itemDate,
+    movieStar,
+    itemGenres,
+    itemOverview,
+    itemPoster,
+  }
+) => {
   const canvas = {
     width: 800,
     height: 350,
@@ -29,6 +32,8 @@ const toImage = async ({
 
   const myCanvas = createCanvas(canvas.width, canvas.height);
   registerFont("src/data/Montserrat.ttf", { family: "Montserrat" });
+  registerFont("src/data/The-Sans-Plain-alinma.ttf", { family: "alinma" });
+  const font = language === "ar" ? "Montserrat" : "alinma";
 
   const ctx = myCanvas.getContext("2d");
   ctx.imageSmoothingQuality = "high";
@@ -119,7 +124,7 @@ const toImage = async ({
   }
 
   function text({ text, fontSize, color, x, y }) {
-    ctx.font = `300 ${fontSize}px "Montserrat"`;
+    ctx.font = `300 ${fontSize}px "${font}"`;
     ctx.fillStyle = color;
     ctx.fillText(text, x, y);
   }
@@ -127,7 +132,7 @@ const toImage = async ({
     var words = txt.split(" ");
     var line = "";
     ctx.fillStyle = "white";
-    ctx.font = `300 14px "Montserrat"`;
+    ctx.font = `300 14px "${font}"`;
 
     for (var n = 0; n < words.length; n++) {
       var testLine = line + words[n] + " ";
