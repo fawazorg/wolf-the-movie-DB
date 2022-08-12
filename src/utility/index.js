@@ -25,9 +25,9 @@ const toImage = async (
   }
 ) => {
   const canvas = {
-    width: 800,
-    height: 350,
-    padding: 25,
+    width: 1600,
+    height: 700,
+    padding: 50,
   };
 
   const myCanvas = createCanvas(canvas.width, canvas.height);
@@ -45,11 +45,11 @@ const toImage = async (
     url: `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${itemBackdrop}`,
     sx: 0,
     sy: 0,
-    sWidth: 640 * 2,
-    sHeight: 350 * 2,
-    dx: 160,
+    sWidth: 1920,
+    sHeight: 800,
+    dx: 320,
     dy: 0,
-    dWidth: canvas.width - 160,
+    dWidth: canvas.width,
     dHeight: canvas.height,
   };
   var poster = {
@@ -62,42 +62,42 @@ const toImage = async (
     sHeight: 450,
     dx: canvas.padding,
     dy: canvas.padding,
-    dWidth: 80,
-    dHeight: 120,
+    dWidth: 160,
+    dHeight: 240,
   };
   var title = {
     text: itemTitle,
     x: canvas.padding + poster.dWidth + 20,
     y: canvas.padding * 2 + 2,
-    fontSize: 29,
+    fontSize: 58,
     color: "white",
   };
   var subTitle = {
     text: `${itemDate},${itemId}`,
     x: title.x,
     y: title.y + canvas.padding - 2,
-    fontSize: 14,
+    fontSize: 28,
     color: "#9ac7fa",
   };
   var rate = {
     text: `${movieStar.toFixed(1)}/10`,
     x: subTitle.x + 5,
-    y: subTitle.y + canvas.padding + 5,
-    fontSize: 14,
+    y: subTitle.y + canvas.padding + 10,
+    fontSize: 28,
     color: "white",
   };
   var genre = {
     text: itemGenres,
-    x: rate.x + canvas.padding + 40,
+    x: rate.x + canvas.padding + 80,
     y: rate.y,
-    fontSize: 14,
+    fontSize: 28,
     color: "#9ac7fa",
   };
   var overview = {
     text: itemOverview,
     x: canvas.padding,
     y: poster.dHeight + canvas.padding * 2 + 10,
-    fontSize: 14,
+    fontSize: 28,
     color: "white",
   };
   async function draw({
@@ -132,7 +132,7 @@ const toImage = async (
     var words = txt.split(" ");
     var line = "";
     ctx.fillStyle = "white";
-    ctx.font = `300 14px "${font}"`;
+    ctx.font = `300 28px "${font}"`;
 
     for (var n = 0; n < words.length; n++) {
       var testLine = line + words[n] + " ";
@@ -159,7 +159,7 @@ const toImage = async (
     ctx.arcTo(x, y + h, x, y, r);
     ctx.arcTo(x, y, x + w, y, r);
     ctx.closePath();
-    ctx.lineWidth = 0.3;
+    ctx.lineWidth = 0.6;
     ctx.strokeStyle = "white";
     ctx.stroke();
   }
@@ -170,9 +170,9 @@ const toImage = async (
   text(title);
   text(subTitle);
   text(rate);
-  roundRect(rate.x - 5, rate.y - 20, 50, 30, 5);
+  roundRect(rate.x - 10, rate.y - 40, 100, 60, 5);
   text(genre);
-  wrapText(overview.text, overview.x, overview.y, 400, 24);
+  wrapText(overview.text, overview.x, overview.y, 800, 48);
 
   return myCanvas.toBuffer("image/jpeg");
 };

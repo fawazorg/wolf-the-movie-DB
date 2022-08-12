@@ -1,7 +1,6 @@
 const { Constants } = require("wolf.js");
 const Genre = require("./Genre");
 const { imageURL, toImage } = require("../utility/index");
-const dark = require("../utility/templates/dark.temple");
 const groups = require("../data/groups");
 class Base {
   #API;
