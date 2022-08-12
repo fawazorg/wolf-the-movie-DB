@@ -67,7 +67,7 @@ const toImage = async (
   };
   var title = {
     text: itemTitle,
-    x: canvas.padding + poster.dWidth + 20,
+    x: canvas.padding + poster.dWidth + 40,
     y: canvas.padding * 2 + 2,
     fontSize: 58,
     color: "white",
