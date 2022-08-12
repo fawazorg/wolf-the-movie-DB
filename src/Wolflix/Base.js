@@ -1,6 +1,6 @@
 const { Constants } = require("wolf.js");
 const Genre = require("./Genre");
-const { imageURL, HtmlToImage } = require("../utility/index");
+const { imageURL, toImage } = require("../utility/index");
 const dark = require("../utility/templates/dark.temple");
 const groups = require("../data/groups");
 class Base {
@@ -50,7 +50,7 @@ class Base {
    */
   _replyItem = async (item) => {
     if (groups.Find(this.#Command.targetGroupId)) {
-      return await this._reply(await HtmlToImage(this._formatItmeHtml(item)));
+      return await this._reply(await toImage(this._formatForCanvas(item)));
     }
     await this._replyItemImage(item);
     let ops = this._setupLinkOptions(item);
@@ -221,20 +221,17 @@ class Base {
    *
    * @param {*} item
    */
-  _formatItmeHtml = (item) => {
-    return this.#API
-      .utility()
-      .string()
-      .replace(dark, {
-        itemid: item.id,
-        itemBackdrop: item.backdrop_path ?? "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
-        itemTitle: this._itemName(item) ?? "",
-        itmeDate: this._itemDate(item) ?? "",
-        movieStar: item.vote_average ?? 0,
-        itemGenres: this._itemGenres(item, true) ?? "",
-        itemOverview: item.overview ?? "",
-        itemPoster: item.poster_path ?? "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
-      });
+  _formatForCanvas = (item) => {
+    return {
+      itemId: item.id,
+      itemBackdrop: item.backdrop_path ?? "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      itemTitle: this._itemName(item) ?? "",
+      itemDate: this._itemDate(item) ?? "",
+      movieStar: item.vote_average ?? 0,
+      itemGenres: this._itemGenres(item, true) ?? "",
+      itemOverview: item.overview ?? "",
+      itemPoster: item.poster_path ?? "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+    };
   };
 
   /**

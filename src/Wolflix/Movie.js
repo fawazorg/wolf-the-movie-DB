@@ -40,6 +40,7 @@ class Movie extends Base {
         await this._replyItem(movie);
       }
     } catch (error) {
+      console.log(error);
       await this._replyError(error);
     }
   };
@@ -64,6 +65,7 @@ class Movie extends Base {
       }
       await this._replyError("Not Found!");
     } catch (error) {
+      console.log(error);
       await this._replyError(error);
     }
   };
